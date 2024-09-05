@@ -25,3 +25,12 @@
 
 ```
 
+
+
+[workflow入口](https://github.com/zhuzhu-Top/deobf/blob/506eb3273f2c490946b24f9914fbf61bb14553a5/work_flow.py#L226)
+
+这个函数最后两个调用
+```python
+recover_branch(func,procedure_addrs,jumps) 这里是修改 il 实现 cmp下沉
+recover_blcok_flow(func,reg2values)        这里是把真实块直接跳转到下一个真实块
+```
