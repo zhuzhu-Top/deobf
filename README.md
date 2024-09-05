@@ -3,6 +3,8 @@
 
 安装binja插件以及 workflow使用 自行了解
 
+>样本就是 0xEEEE 大佬文章里的, 如果代码有问题,可以 提issue,我可能有的地方忘记改了
+
 ```angular2html
 │   arch_hook.py  binja ArchitectureHook 案例
 │   data.json     workflow需要读取信息的文件
