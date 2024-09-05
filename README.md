@@ -36,3 +36,21 @@
 recover_branch(func,procedure_addrs,jumps) 这里是修改 il 实现 cmp下沉
 recover_blcok_flow(func,reg2values)        这里是把真实块直接跳转到下一个真实块
 ```
+
+
+# 其他 看过的代码
+binja 创建自定义的段 
+自己创建函数就可以任意的给函数添加il代码了
+> https://github.com/CouleeApps/ropthing,
+
+
+> https://github.com/fengjixuchui/binja-a53
+
+binja还原 vm
+> https://github.com/OALabs/ZVM
+
+binja il 的符号执行
+> https://github.com/borzacchiello/seninja
+
+忘记是关于什么的了
+> https://github.com/verylazyguy/binaryninja-vmndh
