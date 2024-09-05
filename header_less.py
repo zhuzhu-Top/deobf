@@ -5,7 +5,7 @@ from pprint import pprint
 # from  main import Main
 from binaryninja.architecture import Architecture, ArchitectureHook
 from binaryninja.enums import *
-
+import os
 
 
 try:
@@ -291,7 +291,9 @@ def print_jump_target(bv: BinaryView):
 
     out["reg2values"] = reg2values
     # pp_print(out)
-    with open(r"C:\Users\zhuzhu\AppData\Roaming\Binary Ninja\plugins\deobf\data.json","w") as f:
+    current_work_dir = os.path.dirname(__file__)
+    file_path =current_work_dir+"\\data.json"
+    with open(file_path,"w") as f:
         f.write(json.dumps(out))
 
     # func.llil.generate_ssa_form()
@@ -308,7 +310,6 @@ def print_jump_target(bv: BinaryView):
 
 
 if __name__ == '__main__':
-
 
     bv = load(r"D:\TMP\libtprt.so.bndb",options = {
         "workflows.functionWorkflow":"PythonLogWarnWorkflow",

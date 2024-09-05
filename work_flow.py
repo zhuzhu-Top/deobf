@@ -6,7 +6,6 @@ import json
 from .header_less import patch_llil_ssa,find_all_relative_var
 from .utils import *
 
-file_name = r"C:\Users\zhuzhu\AppData\Roaming\Binary Ninja\plugins\deobf\data.json"
 
 
 def patch_to_nop(func :binaryninja.function.Function,addr):
@@ -224,7 +223,9 @@ def recover_blcok_flow(func :binaryninja.function.Function,reg2values: dict):
     llil.generate_ssa_form()
 binaryninja.architecture.CoreArchitecture
 def cus_workflow(analysisContext : AnalysisContext):
+    # 因为只有一个函数的反混淆,想看原始的代码的样子就不能改il
     return
+    # 连接pycharm 调试器 不用就注释掉
     # try:
     #     import pydevd_pycharm
     #     pydevd_pycharm.settrace('localhost', port=9999, stdoutToServer=True, stderrToServer=True, suspend=False)
@@ -237,11 +238,14 @@ def cus_workflow(analysisContext : AnalysisContext):
     is_enbale_custom_workflow = Settings().get_bool("zhuzhu.workFlow")
     if not is_enbale_custom_workflow or is_enbale_custom_workflow==None:
         return
-    if not os.path.isfile(file_name):
-        return
 
     llil = func.llil
-    file = open(file_name, "r")
+
+    current_work_dir = os.path.dirname(__file__)
+    file_path =current_work_dir+"\\data.json"
+    if not os.path.isfile(file_path):
+        return
+    file = open(file_path, "r")
     jumps= json.loads(file.read())
     file.close()
 

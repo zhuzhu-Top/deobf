@@ -110,8 +110,9 @@ if __name__ == '__main__':
     #     )
     # dispatcher_addr = start_address+0x9cc54
     # dispatcher_state = get_dispatcher_state(start_address + 0x0009cbe0)
+    # 负责跳转的寄存器
     state_register_name = "x22"
-    # 分发器的地址
+    # 分发器的地址(必须是第一行)
     dispatcher_addr = start_address+0x9cf7c
     # 根据函数起始地址获取分发器的初始 state
     dispatcher_state = get_dispatcher_state(start_address + 0x9ceb8)
